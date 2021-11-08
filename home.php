@@ -51,7 +51,7 @@ include_once("connection.php");
       ?>
         <div class="col-sm-4">
           <div class="thumbnail">
-            <img id="furniture" with ="100%" src="images/<?php echo $row['pro_image']?>">
+            <img id="furniture" src="images/<?php echo $row['pro_image']?>">
             <p><strong><?php echo $row['product_name']?></strong></p>
             <p>$<?php echo $row['price']?></p>
             <a href="?page=cart"><button class="btn">Buy now</button></a>
