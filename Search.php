@@ -43,7 +43,7 @@ while($row = pg_fetch_array($result, Null, PGSQL_ASSOC)){
     <!--Display product-->
     <div class="col-sm-3">
           <div class="thumbnail" style="background: #F2F2F2;">
-          <img src="product-imgs/<?php echo $row['pro_image']?>" alt="product" width="400" height="300">
+          <img src="product-imgs/<?php echo $row['pro_image']?>" alt="product" width="200" height="160">
             <p><strong><?php echo  $row['product_name']?></strong></p>
             <p>$<?php echo  $row['price']?></p>
             <a href="?page=cart"><button class="btn">Buy Now</button><a href="?page=cart">
