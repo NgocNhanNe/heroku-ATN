@@ -106,7 +106,7 @@
 }
 .thumbnail img{
    width: 200px;
-   height: 160px;
+   height: 200px;
    transition: width 2s, height 2s, box-shadow 2s;
    -o-transition: width 2s, height 2s, box-shadow 2s;
    -ms-transition: width 2s, height 2s, box-shadow 2s;
