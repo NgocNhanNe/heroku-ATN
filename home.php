@@ -121,12 +121,6 @@ include_once("connection.php");
       <div class="carousel-caption">
       </div>      
     </div>
-  
-    <div class="item">
-      <img id="exists" src="images/exists_pic3.jpg" alt="pic">
-      <div class="carousel-caption">
-      </div>      
-    </div>
     <div class="item">
       <img id="exists" src="images/exists_pic4.jpg" alt="pic">
       <div class="carousel-caption">
