@@ -36,7 +36,7 @@ include_once("connection.php");
 
 
       <br><br><br><br><br><br><br><br><br>
-     
+      <div class="well well-sm" id="best_seller">ALL PRODUCT</div>
       <div class="bg-1">
     <div class="container">
       <div class="row text-center">
