@@ -169,6 +169,9 @@ if(isset($_GET['page']))
     else if($page=="cart"){
       include_once("Cart.php");
     }
+    else if($page=="search"){
+      include_once("Search.php");
+    }
 }
 else{
     include("home.php");
