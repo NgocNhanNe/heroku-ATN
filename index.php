@@ -23,11 +23,11 @@ session_start();
   <div class="row">
     <div class="location"><a href="https://bom.to/9ssiSK"><img class="img" src="images/Location-2-icon.png"><span style="color:black">Location</span></a>
       <a href="?page=explore-style"><img class="img" src="images/Very-Basic-Idea-icon.png"><span style="color:black">Ideas and inspiration</span></a>
-      <form class="navbar-form navbar-left" align="center" action="index.php?page=search" method="post">
+      <form class="navbar-form navbar-left" action="index.php?page=search" method="post">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="txtSearch">
           </div>
-          <button type="submit" class="btn btn-default">Search</button>
+          <button type="submit" class="btn">Search</button>
       </form>
         <div class="home" align="center">
         <?php
