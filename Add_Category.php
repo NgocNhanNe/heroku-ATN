@@ -23,9 +23,9 @@
 				echo"<ul>$err</ul>";
 			}
 			else{
-				$id=htmlspecialchars(pg_real_escape_string($conn,$id));
-				$name=htmlspecialchars(pg_real_escape_string($conn,$name));
-				$des=htmlspecialchars(pg_real_escape_string($conn,$des));
+				$id=htmlspecialchars(pg_escape_string($conn,$id));
+				$name=htmlspecialchars(pg_escape_string($conn,$name));
+				$des=htmlspecialchars(pg_escape_string($conn,$des));
 				$sq="select * from category where cat_id='$id' or cat_name='$name'";
 				$result=pg_query($conn,$sq);
 				if(pg_num_rows($result)==0)
