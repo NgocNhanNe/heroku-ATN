@@ -37,61 +37,31 @@ include_once("connection.php");
 
       <br><br><br><br><br><br><br><br><br>
      
-<div class="bg-1">
+      <div class="bg-1">
     <div class="container">
-    <div class="well well-sm" id="best_seller">BEST SELLER</div>
       <div class="row text-center">
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="images/bearbrick.jpg" alt="BEARBRICK">
-            <p><strong>BEARBRICK DAVE CHROME Ver. 100% & 400%</strong></p>
-            <p>$5,000</p>
-            <a href="?page=cart"><button class="btn">Buy now</button></a>
+      <?php
+                // 	include_once("database.php");
+        $result = pg_query($conn, "SELECT * FROM product");
+        
+          if (!$result) { //add this check.
+            die('Invalid query: ' . pg_error($conn));
+                        }
+          while($row = pg_fetch_array($result,Null, PGSQL_ASSOC)){
+        ?>
+        <div class="col-sm-3">
+          <div class="thumbnail" style="background: #F2F2F2;">
+          <img src="product-imgs/<?php echo $row['pro_image']?>" alt="Product" width="400" height="300">
+            <p><strong><?php echo  $row['product_name']?></strong></p>
+            <p>$<?php echo  $row['price']?></p>
+            <a href="?page=cart"><button class="btn">Buy Now</button></a>
           </div>
         </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="images/batman-mafex.jpg" alt="MAFEX">
-            <p><strong>MAFEX BATMAN Ver.3.0</strong></p>
-            <p>$850</p>
-            <a href="?page=cart"><button class="btn">Buy now</button></a>
-          </div>
+        <?php
+				}
+				?>
         </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="images/dolls-vcd.jpg" alt="DOLLS">
-            <p><strong>VCD Marilyn Monroe GOLD Ver.</strong></p>
-            <p>$600</p>
-            <a href="?page=cart"><button class="btn">Buy now</button></a>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="images/sofvi-smak.jpg" alt="SOFVI">
-            <p><strong>SMAK! Martin by Nathalie Lete</strong></p>
-            <p>$1,380</p>
-            <a href="?page=cart"><button class="btn">Buy now</button></a>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="images/1000-bearbrick-god-selection-xxx-white.jpg" alt="BEARBRICK">
-            <p><strong>1000% Bearbrick God Selection XXX White</strong></p>
-            <p>$4,500</p>
-            <a href="?page=cart"><button class="btn">Buy now</button></a>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="images/0075_200824_72bxik_y_360x.jpg" alt="DOLLS" width="100" height="100">
-            <p><strong>VCD ANDY WARHOL SILKSCREEN VARIANT 2020 Ver.</strong></p>
-            <p>$420</p>
-            <a href="?page=cart"><button class="btn">Buy now</button></a>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
   
   <div class="bg-1">
     <div class="container">
