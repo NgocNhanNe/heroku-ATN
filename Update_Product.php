@@ -28,7 +28,7 @@
 		FROM product WHERE product_id = '$id' ";
 
 		$result = pg_query($conn, $sqlstring);
-		$row = pg_fetch_array($result, PGSQL_ASSOC);
+		$row = pg_fetch_array($result,Null, PGSQL_ASSOC);
 		
 		$proname =$row["product_name"];
 		$short = $row['smalldesc'];
@@ -189,16 +189,16 @@
 				{
 					if($pic['size']<= 614400)
 					{
-						$sq="SELECT * FROM product WHERE Product_ID != '$id' and Product_Name='$proname'";
+						$sq="SELECT * FROM product WHERE product_id != '$id' and product_name='$proname'";
 						$result=pg_query($conn,$sq);
 						if(pg_num_rows($result)==0)
 						{
 						copy($pic['tmp_name'], "product-imgs/".$pic['name']);
 						$filePic = $pic['name'];
 
-						$sqlstring="UPDATE product SET Product_Name='$proname', Price=$price, oldPrice='$oldprice', SmallDesc='$short',
-						DetailDesc='$detail', Pro_qty=$qty, Pro_image='$filePic',Cat_ID='$category',
-						ProDate='".date('Y-m-d H:i:s')."' WHERE Product_ID='$id'";
+						$sqlstring="UPDATE product SET product_name='$proname', price=$price, oldprice='$oldprice', smalldesc='$short',
+						detaildesc='$detail', pro_qty=$qty, pro_image='$filePic',cat_id='$category',
+						prodate='".date('Y-m-d H:i:s')."' WHERE product_id='$id'";
 						pg_query($conn,$sqlstring);
 						echo '<meta http-equiv="refresh" content="0;URL=?page=management_product"/>';
 						}
@@ -219,13 +219,13 @@
 			}
 			else
 			{
-				$sq="SELECT * FROM product where Product_ID != '$id' and Product_Name='$proname'";
+				$sq="SELECT * FROM product where product_id != '$id' and product_name='$proname'";
 				$result= pg_query($conn,$sq);
 				if(pg_num_rows($result)==0)
 				{
-					$sqlstring="UPDATE product SET Product_Name='$proname',
-					Price=$price, oldPrice='$oldprice',SmallDesc='$short',DetailDesc='$detail',Pro_qty=$qty,
-					Cat_ID='$category',ProDate='".date('Y-m-d H:i:s')."' WHERE Product_ID='$id'";
+					$sqlstring="UPDATE product SET product_name='$proname',
+					price=$price, oldprice='$oldprice',smalldesc='$short',detaildesc='$detail',pro_qty=$qty,
+					cat_id='$category',prodate='".date('Y-m-d H:i:s')."' WHERE product_id='$id'";
 					pg_query($conn,$sqlstring);
 					echo '<meta http-equiv="refresh" content="0;URL=?page=management_product"/>';
 				}
