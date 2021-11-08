@@ -5,17 +5,17 @@
 <?php
 	include_once("connection.php");
 	Function bind_Category_List($conn,$selectedValue){
-		$sqlstring="SELECT Cat_ID, Cat_Name FROM category";
+		$sqlstring="SELECT cat_id, cat_name FROM category";
 		$result = pg_query($conn, $sqlstring);
 		echo "<select name='CategoryList' class='form-control'>
 			<option value='0'>Chose category</option>";
 			while ($row = pg_fetch_array($result, PGSQL_ASSOC)){
-				if($row['Cat_ID'] == $selectedValue)
+				if($row['cat_id'] == $selectedValue)
 				{
-					echo "<option value='".$row['Cat_ID']."' selected>".$row['Cat_Name']."</option>";
+					echo "<option value='".$row['cat_id']."' selected>".$row['cat_name']."</option>";
 				}
 				else{
-					echo "<option value='".$row['Cat_ID']."'>".$row['Cat_Name']."</option>";
+					echo "<option value='".$row['cat_id']."'>".$row['cat_name']."</option>";
 				}
 			}
 		echo "</select>";
@@ -23,21 +23,21 @@
 	if(isset($_GET["id"]))
 	{
 		$id= $_GET["id"];
-		$sqlstring = "SELECT Product_Name, Price, oldPrice, SmallDesc, DetailDesc, ProDate,
-		Pro_qty, Pro_image, Cat_ID
-		FROM product WHERE Product_ID = '$id' ";
+		$sqlstring = "SELECT product_name, price, oldprice, smalldesc, detaildesc, prodate,
+		pro_qty, pro_image, cat_id
+		FROM product WHERE product_id = '$id' ";
 
 		$result = pg_query($conn, $sqlstring);
 		$row = pg_fetch_array($result, PGSQL_ASSOC);
 		
-		$proname =$row["Product_Name"];
-		$short = $row['SmallDesc'];
-		$detail=$row['DetailDesc'];
-		$price=$row['Price'];
-		$oldprice=$row['oldPrice'];
-		$qty=$row['Pro_qty'];
-		$pic =$row['Pro_image'];
-		$category= $row['Cat_ID'];
+		$proname =$row["product_name"];
+		$short = $row['smalldesc'];
+		$detail=$row['detaildesc'];
+		$price=$row['price'];
+		$oldprice=$row['oldprice'];
+		$qty=$row['pro_qty'];
+		$pic =$row['pro_image'];
+		$category= $row['cat_id'];
 
 ?>
 <div class="container">
