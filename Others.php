@@ -10,7 +10,7 @@
           if (!$result) { //add this check.
             die('Invalid query: ' . pg_error($conn));
                         }
-          while($row = pg_fetch_array($result,Null, MYSQLI_ASSOC)){
+          while($row = pg_fetch_array($result,Null, PGSQLI_ASSOC)){
       ?>
         <div class="col-sm-4">
           <div class="thumbnail">
