@@ -4,8 +4,8 @@
     <div class="row text-center">
       <?php
                 // 	include_once("database.php");
-        $result = mysqli_query($conn, "SELECT * FROM product where cat_id !='C001', cat_id !='C002',cat_id !='C003',
-        cat_id !='C004'and cat_id !='C005'");
+        $result = pgsqli_query($conn, "SELECT * FROM product where cat_id !='C001', cat_id !='C002',cat_id !='C003',
+        cat_id !='C004' and cat_id !='C005'");
         
           if (!$result) { //add this check.
             die('Invalid query: ' . pg_error($conn));
